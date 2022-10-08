@@ -1,4 +1,4 @@
-﻿namespace Exercicio
+﻿namespace DesignPatternsCourse.Strategy.Exercicio
 {
     public class Orcamento
     {

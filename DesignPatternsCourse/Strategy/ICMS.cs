@@ -1,4 +1,4 @@
-﻿namespace Course.Strategy
+﻿namespace DesignPatternsCourse.Strategy
 {
     public class ICMS : Imposto
     {

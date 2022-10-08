@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-namespace Course.Strategy
+namespace DesignPatternsCourse.Strategy
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             Imposto iss = new ISS();
             Imposto icms = new ICMS();
