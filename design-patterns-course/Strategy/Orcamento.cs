@@ -1,4 +1,4 @@
-﻿namespace FirstPart
+﻿namespace Course.Strategy
 {
     public class Orcamento
     {

@@ -5,6 +5,10 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <AssemblyName>design-patterns-course</AssemblyName>
+        <RootNamespace>design-patterns-course</RootNamespace>
+        <Company>design-patterns-course</Company>
+        <Product>design-patterns-course</Product>
     </PropertyGroup>
 
 </Project>
