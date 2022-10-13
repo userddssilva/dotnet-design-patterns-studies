@@ -89,7 +89,7 @@
 
     public class Program
     {
-        static void Main(String[] args)
+        static void Main4(String[] args)
         {
             DefinidorDeFormatoDaRequisicao definidor = new DefinidorDeFormatoDaRequisicao();
 

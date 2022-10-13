@@ -1,4 +1,4 @@
-﻿namespace DesignPatternsCourse.ChainOfResponsibility
+﻿namespace DesignPatternsCourse.Strategy
 {
     public class Item
     {

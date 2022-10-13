@@ -1,4 +1,6 @@
-﻿namespace DesignPatternsCourse.ChainOfResponsibility
+﻿using DesignPatternsCourse.Strategy;
+
+namespace DesignPatternsCourse.ChainOfResponsibility
 {
     public class SemDesconto : IDesconto
     {
