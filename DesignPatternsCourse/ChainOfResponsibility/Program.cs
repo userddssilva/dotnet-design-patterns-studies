@@ -1,17 +1,18 @@
-﻿namespace DesignPatternsCourse.ChainOfResponsibility;
-
-public class Program
+﻿namespace DesignPatternsCourse.ChainOfResponsibility
 {
-    static void Main2(String[] args) 
+    public class Program
     {
-        CalculadorDeDescontos calculador = new CalculadorDeDescontos();
+        static void Main2(String[] args) 
+        {
+            CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-        Orcamento orcamento = new Orcamento(500.0);
-        orcamento.AddItem(new Item("CANETA", 250.0));
-        orcamento.AddItem(new Item("LAPIS", 250.0));
+            Orcamento orcamento = new Orcamento(500.0);
+            orcamento.AddItem(new Item("CANETA", 250.0));
+            orcamento.AddItem(new Item("LAPIS", 250.0));
 
-        double desconto = calculador.Calcula(orcamento);
+            double desconto = calculador.Calcula(orcamento);
 
-        Console.WriteLine(desconto);
-    } 
+            Console.WriteLine(desconto);
+        } 
+    }
 }
