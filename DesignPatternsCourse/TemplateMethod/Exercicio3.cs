@@ -49,7 +49,7 @@ namespace DesignPatternsCourse.TemplateMethod.Execicio3
 
     public class Program
     {
-        static void Main(String[] args)
+        static void Main1(String[] args)
         {
             RelatorioSimples relatorioSimples = new RelatorioSimples();
             RelatorioComplexo relatorioComplexo = new RelatorioComplexo();

@@ -30,6 +30,15 @@ namespace DesignPatternsCourse.TemplateMethod.Execicio2
 
             return false;
         }
+
+        public IHIT(Imposto outroImposto) : base(outroImposto)
+        {
+        }
+
+        public IHIT() : base()
+        {
+            
+        }
     }
 
     public class Program
