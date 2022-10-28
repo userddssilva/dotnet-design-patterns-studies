@@ -6,7 +6,7 @@ public class TesteDeImposto
 {
     public class TesteDeImpostos 
     {
-        static void Main(String[] args) 
+        static void Main1(String[] args) 
         {
             Imposto impostoComplexo = new IMA(new ICMS());
 
