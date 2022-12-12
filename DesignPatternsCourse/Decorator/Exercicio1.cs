@@ -76,7 +76,7 @@
 
     public class ExecuteProgram
     {
-        static void Main(String[] args)
+        static void Main1(String[] args)
         {
             var conta1 = new Conta(99, new DateTime());
             var conta2 = new Conta(500001, new DateTime());

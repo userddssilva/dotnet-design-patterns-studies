@@ -48,12 +48,12 @@ namespace DesignPatternsCourse.TemplateMethod.Execicio2
             Orcamento orcamento1 = new Orcamento(600);
             Orcamento orcamento2 = new Orcamento(600);
 
-            orcamento1.AddItem(new Item("Computador", 1220.33));
-            orcamento1.AddItem(new Item("Computador", 15.50));
+            orcamento1.AdicionaItem(new Item("Computador", 1220.33));
+            orcamento1.AdicionaItem(new Item("Computador", 15.50));
             
 
-            orcamento2.AddItem(new Item("Mesa", 800.00));
-            orcamento2.AddItem(new Item("Luminaria", 300.40));
+            orcamento2.AdicionaItem(new Item("Mesa", 800.00));
+            orcamento2.AdicionaItem(new Item("Luminaria", 300.40));
 
             IHIT ihit = new IHIT();
             

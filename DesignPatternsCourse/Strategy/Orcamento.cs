@@ -1,8 +1,11 @@
-﻿namespace DesignPatternsCourse.Strategy
+﻿using DesignPatternsCourse.State;
+
+namespace DesignPatternsCourse.Strategy
 {
     public class Orcamento
     {
-        public double Valor { get; private set; }
+        public EstadoDeUmOrcamento EstadoAtual { get; set; }
+        public double Valor { get; set; }
 
         public List<Item> Itens;
 
@@ -10,12 +13,33 @@
         {
             Valor = valor;
             Itens = new List<Item>();
+            EstadoAtual = new EmAprovacao();
         }
 
-        public void AddItem(Item item)
+        public void AplicaDescontoExtra()
+        {
+            EstadoAtual.AplicaDescontoExtra(this);
+        }
+
+        public void AdicionaItem(Item item)
         {
             Itens.Add(item);
             Valor += item.Preco;
+        }
+
+        public void Aprova()
+        {
+            EstadoAtual.Aprova(this);
+        }
+
+        public void Reprova()
+        {
+            EstadoAtual.Reprova(this);
+        }
+
+        public void Finaliza()
+        {
+            EstadoAtual.Finaliza(this);
         }
     }
 }
