@@ -4,13 +4,17 @@ namespace DesignPatternsCourse.Strategy
 {
     public class Orcamento
     {
+        private bool descontoJaFoiAplicado { get; set; }
+
         public EstadoDeUmOrcamento EstadoAtual { get; set; }
+
         public double Valor { get; set; }
 
-        public List<Item> Itens;
+        public List<Item> Itens { get; set; }
 
         public Orcamento(double valor = 0)
         {
+            descontoJaFoiAplicado = false;
             Valor = valor;
             Itens = new List<Item>();
             EstadoAtual = new EmAprovacao();
@@ -18,7 +22,15 @@ namespace DesignPatternsCourse.Strategy
 
         public void AplicaDescontoExtra()
         {
-            EstadoAtual.AplicaDescontoExtra(this);
+            if (!descontoJaFoiAplicado)
+            {
+                EstadoAtual.AplicaDescontoExtra(this);
+                descontoJaFoiAplicado = true;
+            }
+            else
+            {
+                throw new Exception("O desconto já foi aplicado");
+            }
         }
 
         public void AdicionaItem(Item item)
