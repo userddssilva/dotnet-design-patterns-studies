@@ -21,7 +21,7 @@ namespace DesignPatternsCourse.State
 
         public void Finaliza(Orcamento orcamento)
         {
-            throw new Exception("Orçamento já está reprovado");
+            orcamento.EstadoAtual = new Finalizado();
         }
     }
 }
