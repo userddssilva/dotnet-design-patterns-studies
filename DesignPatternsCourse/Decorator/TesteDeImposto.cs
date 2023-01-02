@@ -1,20 +1,21 @@
 ﻿using DesignPatternsCourse.Strategy;
 
-namespace DesignPatternsCourse.Decorator;
-
-public class TesteDeImposto
+namespace DesignPatternsCourse.Decorator
 {
-    public class TesteDeImpostos 
+    public class TesteDeImposto
     {
-        static void Main1(String[] args) 
+        public class TesteDeImpostos 
         {
-            Imposto impostoComplexo = new IMA(new ICMS());
+            static void Main1(String[] args) 
+            {
+                Imposto impostoComplexo = new IMA(new ICMS());
 
-            Orcamento orcamento = new Orcamento(500.0);
+                Orcamento orcamento = new Orcamento(500.0);
 
-            double valor = impostoComplexo.Calcula(orcamento);
+                double valor = impostoComplexo.Calcula(orcamento);
 
-            Console.WriteLine(valor);
+                Console.WriteLine(valor);
+            }
         }
     }
 }

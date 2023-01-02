@@ -4,7 +4,7 @@ namespace DesignPatternsCourse.State
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             Orcamento reforma = new Orcamento(500);
             Console.WriteLine(reforma.Valor);
