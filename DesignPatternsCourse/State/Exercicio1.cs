@@ -1,35 +1,53 @@
-namespace DesignPatternsCourse.State.Exercicio
+namespace DesignPatternsCourse.State.Exercicio1
 {
-    public interface EstadoDaConta
+    public interface EstadoDeConta
     {
-        public bool AplicaDescontoPorTransicao(double montante);
+        public void Saca(Conta conta, double valor);
+        public void Deposita(Conta conta, double valor);
     }
 
-    public class ContaNegativa : EstadoDaConta
+    public class ContaPositiva : EstadoDeConta
     {
-        public bool AplicaDescontoPorTransicao(double montante)
+        public void Saca(Conta conta, double valor)
         {
-            return montante - montante * 0.05;
+            conta.Saldo -= valor;
+
+            if (conta.Saldo < 0) conta.EstadoDaConta = new ContaNegativa();
+        }
+
+        public void Deposita(Conta conta, double valor)
+        {
+            conta.Saldo += valor * 0.98;
         }
     }
 
-    public class ContaPositiva : EstadoDaConta
+    public class ContaNegativa : EstadoDeConta
     {
-        public bool AplicaDescontoPorTransicao(double montante)
+        public void Saca(Conta conta, double valor)
         {
-            return montante - montante * 0.02;
+            throw new Exception("Sua conta está vermelho. Não é possível sacar!");
+        }
+
+        public void Deposita(Conta conta, double valor)
+        {
+            conta.Saldo += valor * 0.95;
+            if (conta.Saldo > 0) conta.EstadoDaConta = new ContaPositiva();
         }
     }
 
     public class Conta
     {
-        public EstadoDataconta EstadoAtual;
+        public EstadoDeConta EstadoDaConta { get; set; }
         public double Saldo;
 
-        public Deposita(double montante)
+        public void Saca(double valor)
         {
-            double novoMontante = EstadoAtual.AplicaDescontoPorTransicao(montante);
-            Saldo += novoMontante;
+            EstadoDaConta.Saca(this, valor);
+        }
+
+        public void Deposita(double valor)
+        {
+            EstadoDaConta.Deposita(this, valor);
         }
     }
 }
