@@ -1,3 +1,5 @@
+using DesignPatternsCourse.Observer;
+
 namespace DesignPatternsCourse.Builder
 {
     public class NotaFiscalBuilder
@@ -5,13 +7,13 @@ namespace DesignPatternsCourse.Builder
         public String RazaoSocial { get; private set; }
         public String Cnpj { get; private set; }
         public String Observacoes { get; private set; }
-
         public double Impostos { get; private set; }
         public double ValorBruto { get; private set; }
-
         public DateTime Data { get; private set; }
 
-        private IList<ItemDaNota> Itens = new List<ItemDaNota>();
+        private IList<ItemDaNota> itensNota = new List<ItemDaNota>();
+        private IList<AcaoAposGerarNota> todasAcoesASeremExecutadas;
+
 
         public NotaFiscalBuilder ParaEmpresa(String razaoSocial)
         {
@@ -27,7 +29,7 @@ namespace DesignPatternsCourse.Builder
 
         public NotaFiscalBuilder ComItem(ItemDaNota item)
         {
-            Itens.Add(item);
+            itensNota.Add(item);
             ValorBruto += item.Valor;
             Impostos += item.Valor * 0.05;
             return this;
@@ -47,7 +49,18 @@ namespace DesignPatternsCourse.Builder
 
         public NotaFiscal Builder()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, Data, ValorBruto, Impostos, Itens, Observacoes);
+            NotaFiscal nf = new NotaFiscal(RazaoSocial, Cnpj, Data, ValorBruto, Impostos, itensNota, Observacoes);
+            foreach (AcaoAposGerarNota acao in todasAcoesASeremExecutadas)
+            {
+                acao.Executa(nf);
+            }
+
+            return nf;
+        }
+
+        public void AdicionaAcao(AcaoAposGerarNota novaAcao)
+        {
+            this.todasAcoesASeremExecutadas.Add(novaAcao);
         }
     }
 }
