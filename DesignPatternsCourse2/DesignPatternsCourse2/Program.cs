@@ -1,6 +1,4 @@
-﻿using System.Data;
-using DesignPatternsCourse2.Cap1;
-using DesignPatternsCourse2.Cap2;
+﻿using DesignPatternsCourse2.Cap3;
 
 namespace DesignPatternsCourse2
 {
@@ -8,40 +6,19 @@ namespace DesignPatternsCourse2
     {
         public static void Main(string[] args)
         {
-            NotasMusicais notas = new NotasMusicais();
+            Historico historico = new Historico();
 
-            IList<INota> doReMiFa = new List<INota>() {
-            notas.Pega("do"),
-            notas.Pega("re"),
-            notas.Pega("mi"),
-            notas.Pega("fa"),
-            notas.Pega("fa"),
-            notas.Pega("fa"),
+            Contrato contrato = new Contrato(DateTime.Now, "Mauricio", TipoContrato.Novo);
+            historico.Adiciona(contrato.SalvaEstado());
 
-            notas.Pega("do"),
-            notas.Pega("re"),
-            notas.Pega("do"),
-            notas.Pega("re"),
-            notas.Pega("re"),
-            notas.Pega("re"),
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
 
-            notas.Pega("do"),
-            notas.Pega("sol"),
-            notas.Pega("fa"),
-            notas.Pega("mi"),
-            notas.Pega("mi"),
-            notas.Pega("mi"),
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
 
-            notas.Pega("do"),
-            notas.Pega("re"),
-            notas.Pega("mi"),
-            notas.Pega("fa"),
-            notas.Pega("fa"),
-            notas.Pega("fa")
-        };
-
-            Piano piano = new Piano();
-            piano.Toca(doReMiFa);
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
         }
     }
 }
