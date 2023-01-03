@@ -1,4 +1,4 @@
-﻿using DesignPatternsCourse2.Cap3;
+﻿using DesignPatternsCourse2.Cap4;
 
 namespace DesignPatternsCourse2
 {
@@ -6,19 +6,13 @@ namespace DesignPatternsCourse2
     {
         public static void Main(string[] args)
         {
-            Historico historico = new Historico();
+            IExpressao esquerda = new Subtracao(new Numero(10), new Numero(5));
+            IExpressao direita = new Soma(new Numero(2), new Numero(10));
 
-            Contrato contrato = new Contrato(DateTime.Now, "Mauricio", TipoContrato.Novo);
-            historico.Adiciona(contrato.SalvaEstado());
+            IExpressao conta = new Soma(esquerda, direita);
 
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
-
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
-
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
+            int resultado = conta.Avalia();
+            Console.WriteLine(resultado);
         }
     }
 }
