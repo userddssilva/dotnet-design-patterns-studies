@@ -1,7 +1,10 @@
-namespace DesignPatternsCourse2.Cap4
+using DesignPatternsCourse2.Cap5;
+
+namespace DesignPatternsCourse2.Cap4;
+
+public interface IExpressao
 {
-    public interface IExpressao
-    {
-        int Avalia();
-    }
+    public int Avalia();
+
+    public void Aceita(IVisitor visitor);
 }

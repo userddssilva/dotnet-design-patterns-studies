@@ -1,20 +1,27 @@
+using DesignPatternsCourse2.Cap5;
+
 namespace DesignPatternsCourse2.Cap4;
 
 public class Multiplicacao : IExpressao
 {
-    private IExpressao esquerda;
-    private IExpressao direita;
+    public IExpressao Esquerda { get; private set; }
+    public IExpressao Direita { get; private set; }
 
     public Multiplicacao(IExpressao esquerda, IExpressao direita)
     {
-        this.esquerda = esquerda;
-        this.direita = direita;
+        this.Esquerda = esquerda;
+        this.Direita = direita;
     }
 
     public int Avalia()
     {
-        int resultadoDaEsquerda = esquerda.Avalia();
-        int resultadoDaDireita = direita.Avalia();
+        int resultadoDaEsquerda = Esquerda.Avalia();
+        int resultadoDaDireita = Direita.Avalia();
         return resultadoDaEsquerda * resultadoDaDireita;
+    }
+
+    public void Aceita(IVisitor visitor)
+    {
+        throw new NotImplementedException();
     }
 }
